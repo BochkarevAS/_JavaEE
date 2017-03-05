@@ -2,6 +2,7 @@ package ru.company.servlet;
 
 import ru.company.beans.Book;
 import ru.company.beans.Genre;
+import ru.company.beans.Letters;
 import ru.company.service.api.BookService;
 import ru.company.service.impl.BookServiceImpl;
 
@@ -36,6 +37,9 @@ public class BookServlet extends HttpServlet {
 
         List<Genre> allGenre = bookService.getAllGenre();
         request.setAttribute("allGenre", allGenre);
+
+        Letters letters = new Letters();
+        request.setAttribute("letter", letters.getLetter());
 
         request.getRequestDispatcher("view/book.jsp").forward(request, response);
     }
